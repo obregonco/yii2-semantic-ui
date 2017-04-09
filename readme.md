@@ -13,13 +13,13 @@ The preferred way to install this extension is through [Composer](http://getcomp
 Either run
 
 ```
-php composer.phar require zelenin/yii2-semantic-ui "~2"
+php composer.phar require obregonco/yii2-semantic-ui "~2"
 ```
 
 or add
 
 ```
-"zelenin/yii2-semantic-ui": "~2"
+"obregonco/yii2-semantic-ui": "~2"
 ```
 
 to the require section of your ```composer.json```
@@ -44,7 +44,7 @@ class AppAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'yii\web\JqueryAsset',
-        'Zelenin\yii\SemanticUI\assets\SemanticUICSSAsset'
+        'obregonco\SemanticUI\assets\SemanticUICSSAsset'
     ];
 }
 ```
@@ -54,19 +54,19 @@ Use Semantic UI widgets and elements. Standard Yii2 widgets also adopted.
 You may replace yii2 standard widgets. Write in bootstrap.php:
 
 ```php
-Yii::$container->set(\yii\grid\GridView::className(), \Zelenin\yii\SemanticUI\widgets\GridView::className());
-Yii::$container->set(\yii\widgets\ActiveForm::className(), \Zelenin\yii\SemanticUI\widgets\ActiveForm::className());
-Yii::$container->set(\yii\bootstrap\ActiveForm::className(), \Zelenin\yii\SemanticUI\widgets\ActiveForm::className());
-Yii::$container->set(\yii\widgets\Breadcrumbs::className(), \Zelenin\yii\SemanticUI\collections\Breadcrumb::className());
-Yii::$container->set(\yii\grid\CheckboxColumn::className(), \Zelenin\yii\SemanticUI\widgets\CheckboxColumn::className());
+Yii::$container->set(\yii\grid\GridView::className(), \obregonco\SemanticUI\widgets\GridView::class);
+Yii::$container->set(\yii\widgets\ActiveForm::className(), \obregonco\SemanticUI\widgets\ActiveForm::class);
+Yii::$container->set(\yii\bootstrap\ActiveForm::className(), \obregonco\SemanticUI\widgets\ActiveForm::class);
+Yii::$container->set(\yii\widgets\Breadcrumbs::className(), \obregonco\SemanticUI\collections\Breadcrumb::class);
+Yii::$container->set(\yii\grid\CheckboxColumn::className(), \obregonco\SemanticUI\widgets\CheckboxColumn::class);
 ```
 
 Be very careful with it.
 
-### Demo
-
-[Demo site](http://yii2-semantic-ui.zelenin.pw)
-
 ## Author
+[Obregon.co](https://github.com/obregonco/)
+[Ricardo O](https://github.com/robregonm/)
 
-[Aleksandr Zelenin](https://github.com/zelenin/), e-mail: [aleksandr@zelenin.me](mailto:aleksandr@zelenin.me)
+### Credits
+
+Original maintainer [Aleksandr Zelenin](https://github.com/zelenin/)
