@@ -1,6 +1,6 @@
 <?php
 
-namespace Zelenin\yii\SemanticUI\widgets;
+namespace obregonco\SemanticUI\widgets;
 
 class GridView extends \yii\grid\GridView
 {
@@ -12,10 +12,10 @@ class GridView extends \yii\grid\GridView
     /**
      * @var string
      */
-    public $dataColumnClass = 'Zelenin\yii\SemanticUI\widgets\DataColumn';
+    public $dataColumnClass = \obregonco\SemanticUI\widgets\DataColumn::class;
 
     /**
      * @var array
      */
-    public $pager = ['class' => 'Zelenin\yii\SemanticUI\widgets\LinkPager'];
+    public $pager = ['class' => \obregonco\SemanticUI\widgets\LinkPager::class];
 }

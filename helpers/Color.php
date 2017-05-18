@@ -1,6 +1,6 @@
 <?php
 
-namespace Zelenin\yii\SemanticUI\helpers;
+namespace obregonco\SemanticUI\helpers;
 
 class Color
 {

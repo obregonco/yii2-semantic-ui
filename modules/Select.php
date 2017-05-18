@@ -1,12 +1,12 @@
 <?php
 
-namespace Zelenin\yii\SemanticUI\modules;
+namespace obregonco\SemanticUI\modules;
 
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\View;
-use Zelenin\yii\SemanticUI\InputWidget;
+use obregonco\SemanticUI\InputWidget;
 
 class Select extends InputWidget
 {

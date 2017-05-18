@@ -1,11 +1,11 @@
 <?php
 
-namespace Zelenin\yii\SemanticUI\widgets;
+namespace obregonco\SemanticUI\widgets;
 
 use yii\base\Model;
 use yii\helpers\Html;
-use Zelenin\yii\SemanticUI\Elements;
-use Zelenin\yii\SemanticUI\modules\Select;
+use obregonco\SemanticUI\Elements;
+use obregonco\SemanticUI\modules\Select;
 
 class DataColumn extends \yii\grid\DataColumn
 {

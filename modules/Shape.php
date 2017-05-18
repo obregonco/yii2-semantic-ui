@@ -1,11 +1,11 @@
 <?php
 
-namespace Zelenin\yii\SemanticUI\modules;
+namespace obregonco\SemanticUI\modules;
 
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
-use Zelenin\yii\SemanticUI\Widget;
+use obregonco\SemanticUI\Widget;
 
 class Shape extends Widget
 {

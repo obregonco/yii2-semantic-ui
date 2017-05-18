@@ -1,13 +1,13 @@
 <?php
 
-namespace Zelenin\yii\SemanticUI\widgets;
+namespace obregonco\SemanticUI\widgets;
 
 use Closure;
 use Exception;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 use yii\web\JsExpression;
-use Zelenin\yii\SemanticUI\modules\Checkbox;
+use obregonco\SemanticUI\modules\Checkbox;
 
 class CheckboxColumn extends \yii\grid\CheckboxColumn
 {
