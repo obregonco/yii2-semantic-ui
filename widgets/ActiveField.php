@@ -4,7 +4,7 @@ namespace obregonco\SemanticUI\widgets;
 
 use Yii;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Html;
+use obregonco\SemanticUI\helpers\Html;
 use obregonco\SemanticUI\modules\Checkbox;
 use obregonco\SemanticUI\modules\CheckboxList;
 use obregonco\SemanticUI\modules\Dropdown;
@@ -19,6 +19,8 @@ class ActiveField extends \yii\widgets\ActiveField
 
     public $errorOptions = ['class' => 'ui red pointing label'];
     public $hintOptions = ['class' => 'ui pointing label'];
+
+    private $formatOptions;
 
     public $template = "{label}\n{input}\n{hint}\n{error}";
     public $checkboxTemplate = '<div class="ui checkbox">{input}{label}{hint}{error}</div>';
@@ -35,7 +37,8 @@ class ActiveField extends \yii\widgets\ActiveField
         if ($content === null) {
             if ($this->inputTemplate) {
                 $input = isset($this->parts['{input}']) ?
-                    $this->parts['{input}'] : Html::activeTextInput($this->model, $this->attribute, $this->inputOptions);
+                    $this->parts['{input}'] : Html::activeTextInput($this->model, $this->attribute,
+                        $this->inputOptions);
                 $this->parts['{input}'] = strtr($this->inputTemplate, ['{input}' => $input]);
             }
         }
@@ -57,6 +60,45 @@ class ActiveField extends \yii\widgets\ActiveField
         }
         ');
     }
+
+    protected function formatInput($content, $options)
+    {
+        $options = $options + ['class' => 'ui input'];
+        $appendTo = ArrayHelper::remove($options, 'appendTo', '');
+        $inlineLabel = ArrayHelper::remove($options, 'inlineLabel', '');
+        $inlineLabelOptions = ArrayHelper::remove($options, 'inlineLabelOptions', false);
+        if (!empty($inlineLabel)) {
+            $this->parts['{label}'] = '';
+            $options['class'] .= ' labeled';
+            $label = $inlineLabel === true ? $this->model->getAttributeLabel($this->attribute) : $inlineLabel;
+            $appendTo .= Html::tag('div', $label, $inlineLabelOptions);
+        }
+
+        return Html::tag('div', $appendTo . $content, $options);
+    }
+
+    public function textInput($options = [])
+    {
+        $options = array_merge($this->inputOptions, $options);
+        $uiOptions = ArrayHelper::remove($options, 'uiOptions', []);
+        $this->addAriaAttributes($options);
+        $this->adjustLabelFor($options);
+        $this->parts['{input}'] = $this->formatInput(Html::activeTextInput($this->model, $this->attribute, $options), $uiOptions);
+
+        return $this;
+    }
+
+    public function passwordInput($options = [])
+    {
+        $options = array_merge($this->inputOptions, $options);
+        $uiOptions = ArrayHelper::remove($options, 'uiOptions', []);
+        $this->addAriaAttributes($options);
+        $this->adjustLabelFor($options);
+        $this->parts['{input}'] = $this->formatInput(Html::activePasswordInput($this->model, $this->attribute, $options), $uiOptions);
+
+        return $this;
+    }
+
 
     public function checkbox($options = [], $enclosedByLabel = true)
     {
