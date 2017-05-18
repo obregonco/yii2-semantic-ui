@@ -63,6 +63,21 @@ Yii::$container->set(\yii\grid\CheckboxColumn::className(), \obregonco\SemanticU
 
 Be very careful with it.
 
+##Examples
+
+- Inside an `ActiveForm` object 
+```php
+                $form->field($model, 'username')->label(false)->textInput([
+                    'autofocus' => true,
+                    'placeHolder' => $model->getAttributeLabel('username'),
+                    'uiOptions' => [
+                            'appendTo' => '<i class="user icon"></i>',
+                            'class' => 'ui left icon input',
+                    ]
+                ])
+
+```
+
 ## Author
 [Obregon.co](https://github.com/obregonco/)
 [Ricardo O](https://github.com/robregonm/)
