@@ -64,8 +64,7 @@ Yii::$container->set(\yii\grid\CheckboxColumn::className(), \obregonco\SemanticU
 Be very careful with it.
 
 
-##Examples
-
+## Examples
 
 - Inside an `ActiveForm` object 
 ```php
